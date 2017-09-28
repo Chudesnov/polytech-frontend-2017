@@ -24,9 +24,10 @@ class Dream extends Component {
     render() {
         return (
             <div className="Dream">
-                    <input type="text" value={this.state.fieldValue} onChange={this.handleChange} />
-                    <button onClick={this.handleClick}>Make it real</button>
-                    <br />
+                <h2>Your personal Ded Moroz</h2>
+                <span>Write your dream</span>
+                <input type="text" value={this.state.fieldValue} onChange={this.handleChange} />
+                <button onClick={this.handleClick}>Make it real</button>
                 <span>
                     {this.state.dreamValue ? 'Your dream is ': ''}
                     <b>{this.state.dreamValue}</b>
