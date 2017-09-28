@@ -27,7 +27,11 @@ class Dream extends Component {
                     <input type="text" value={this.state.fieldValue} onChange={this.handleChange} />
                     <button onClick={this.handleClick}>Make it real</button>
                     <br />
-                    <span>{this.state.dreamValue}</span>
+                <span>
+                    {this.state.dreamValue ? 'Your dream is ': ''}
+                    <b>{this.state.dreamValue}</b>
+                    {this.state.dreamValue ? '. Soon it will come true!': ''}
+                </span>
             </div>
         );
     }
