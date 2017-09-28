@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Dream from './Dream';
 import logo from './logo.svg';
 import './App.css';
 
@@ -17,16 +18,6 @@ class App extends Component {
       </div>
     );
   }
-}
-
-class Dream extends Component {
-    render() {
-        return (
-          <div className="Dream">
-              <p>Biba</p>
-          </div>
-        );
-    }
 }
 
 export default App;
