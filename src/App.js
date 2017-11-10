@@ -10,9 +10,9 @@ class App extends Component {
   render() {
     const PageComponent = this.props.component;
     return [
-      <Header />,
-      <PageComponent />,
-      <Footer />
+      <Header key='header' />,
+      <PageComponent key='pageComponent'/>,
+      <Footer key='footer' />
     ];
   }
 }

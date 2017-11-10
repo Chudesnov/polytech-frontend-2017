@@ -3,10 +3,13 @@ import './Button.css';
 
 export function Button({
     children,
-    onClick
+    onClick,
+    type='button'
 }) {
     return <button
         className='button'
+        onClick={onClick}
+        type={type}
     >
         <span className='button-content'>
             {children}

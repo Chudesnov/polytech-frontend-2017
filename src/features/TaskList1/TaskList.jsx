@@ -1,50 +1,26 @@
 // @ts-check
 import React, { PureComponent } from 'react';
+import taskStoreConnect from './store/taskStoreConnect';
+import TaskCreateForm from './TaskCreateForm';
+import TaskCard from './TaskCard';
 
-/**
- * 
- * @param {Date} date 
- */
-function formatDate(date) {
-    return `${date.getDate()+1}.${date.getMonth()+1}.${date.getFullYear()}`;
-}
-
-class TaskCard extends PureComponent {
-    render() {
-        const { title, dueDate, author } = this.props;
-
-        return <li>
-            <h2>{title}</h2>
-            <h3>Created by {author} on {formatDate(dueDate)}</h3>
-        </li>
-    }
-}
-
+@taskStoreConnect
 class TaskList extends PureComponent {
+    onChange() {
+        this.forceUpdate();
+    }
     render() {
         return <ul>
             {this.props.tasks.map(task => <TaskCard
+                key={task.title+task.author}
                 title={task.title}
                 dueDate={task.dueDate}
                 author={task.author}
+                onRemove={() => this.props.removeTask(task)}
             />)}
+            <TaskCreateForm onCreate={this.props.createTask} />
         </ul>
     }
-}
-
-TaskList.defaultProps = {
-    tasks: [
-        {
-            title: 'Create a React Component',
-            dueDate: new Date(2017, 10, 10),
-            author: 'Alex Chudesnov'
-        },
-        {
-            title: 'Create another React Component',
-            dueDate: new Date(2017, 11, 10),
-            author: 'Alex Chudesnov'
-        }
-    ]
 }
 
 export default TaskList;
