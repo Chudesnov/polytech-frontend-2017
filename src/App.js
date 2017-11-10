@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import router from './core/decorators/router';
+import Header from './core/ui/header/Header';
+import Footer from './core/ui/footer/Footer';
 
+const myRouter = router(undefined);
+
+@myRouter
 class App extends Component {
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+    const PageComponent = this.props.component;
+    return [
+      <Header />,
+      <PageComponent />,
+      <Footer />
+    ];
   }
 }
 
